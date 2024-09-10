@@ -67,7 +67,8 @@ function getHumanChoice() {
 }
 
 // Declare variables that store human and computer score
-
+let computerScore = 0
+let humanScore = 0
 // Round by round take human and computer choices and calculate winner
 
 // Logic to play 5 rounds
