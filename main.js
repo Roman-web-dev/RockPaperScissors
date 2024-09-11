@@ -79,32 +79,59 @@ let humanScore = 0
         //IF player choice is Rock and computer choice is Scissors - You win
         //IF player choice is Paper and computer choice is Rock - You win
         //IF player choice is Scissors and computer choice is Paper - You win
-        //ELSE - you loose
+        //ELSE - you lose
 
 function playRound(computerValue, humanValue) {
     
     if (computerValue == humanValue) {
         let spare = 1
         while (spare) {
+            console.log("Try again!")
             computerValue = getComputerChoice()
             humanValue = getHumanChoice()
             if (computerValue != humanValue)
                 spare = 0
 
         }
-    } else if (
+    }
+    
+    if (
         ((humanValue == "Rock") && (computerValue == "Scissors")) ||
         ((humanValue == "Paper") && (computerValue == "Rock")) ||
         ((humanValue == "Scissors") && (computerValue == "Paper"))
     ) {
             console.log("You Win!")
-            humanScore += 1
+            return humanScore += 1
     } else {
         console.log("You Lose!")
-        computerScore += 1
+        return computerScore += 1
     }
 
 }
 
 
 // Logic to play 5 rounds
+
+    //Declare a function
+        //FOR 5 iterations do the following
+            //Call playRound function to play single round
+        //IF humanScore is bigger than computerScore
+            //You win
+        //else - you lose
+    
+function playGame () {
+
+    for (let i = 0; i < 5; i++) {
+        playRound(getComputerChoice(), getHumanChoice())
+        console.log(`You: ${humanScore}`)
+        console.log(`Computer: ${computerScore}`)
+    }
+    if (humanScore > computerScore) {
+        console.log("You won the game!")
+    } else {
+        console.log("You lose the game!")
+    }
+
+}
+
+playGame()
