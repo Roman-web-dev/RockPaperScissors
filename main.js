@@ -8,7 +8,7 @@ console.log("Working")
         //     If number less than 2/3 it is paper 
         //     If number is higher it is scissors
 
-function getCompuerChoice() {
+function getComputerChoice() {
     let computerChoice = Math.random()
 
     if (computerChoice < (1 / 3)) {
@@ -69,6 +69,42 @@ function getHumanChoice() {
 // Declare variables that store human and computer score
 let computerScore = 0
 let humanScore = 0
+
 // Round by round take human and computer choices and calculate winner
+
+    //Declare function with choices as parameters
+        //IF player and computer choice are equal - spare
+            //WHILE spare
+                //Try again
+        //IF player choice is Rock and computer choice is Scissors - You win
+        //IF player choice is Paper and computer choice is Rock - You win
+        //IF player choice is Scissors and computer choice is Paper - You win
+        //ELSE - you loose
+
+function playRound(computerValue, humanValue) {
+    
+    if (computerValue == humanValue) {
+        let spare = 1
+        while (spare) {
+            computerValue = getComputerChoice()
+            humanValue = getHumanChoice()
+            if (computerValue != humanValue)
+                spare = 0
+
+        }
+    } else if (
+        ((humanValue == "Rock") && (computerValue == "Scissors")) ||
+        ((humanValue == "Paper") && (computerValue == "Rock")) ||
+        ((humanValue == "Scissors") && (computerValue == "Paper"))
+    ) {
+            console.log("You Win!")
+            humanScore += 1
+    } else {
+        console.log("You Lose!")
+        computerScore += 1
+    }
+
+}
+
 
 // Logic to play 5 rounds
